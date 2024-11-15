@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# <Script Name>
+# <Description what this module does>
+# Written by <Author>
+# GPL V3
+########
+
+set -x
+set -e
+
+source /common.sh
+install_cleanup_trap
+
+unpack /filesystem/home/pi /home/"${BASE_USER}" "${BASE_USER}"
+unpack /filesystem/home/root /root root
+unpack /filesystem/boot /boot
+
+apt-get update
+apt-get autoremove -y
+
+# install requirements
+apt-get install -y curl
+
+# install wayfire
+apt-get install -y wayfire xwayland
+
+# install & configure greetd
+apt-get install -y greetd
+systemctl enable greetd.service
+systemctl --quiet set-default graphical.target
+
+cat <<EOF >> /etc/greetd/config.toml
+[initial_session]
+user = "${BASE_USER}"
+command = "wayfire"
+EOF
+
+groupadd -r autologin
+usermod -aG autologin "${BASE_USER}"
+
+# install & enable pipewire
+apt-get install -y pipewire pipewire-pulse
+#systemctl enable pipewire.service
+
+# install steamlink
+#apt-get install -y libavcodec59:armhf libavutil57:armhf libmd4c0:armhf libwayland-egl1:armhf libxcb-image0:armhf libxcb-keysyms1:armhf libxcb-shape0:armhf libxcb-xinerama0:armhf libxcb-xkb1:armhf libxkbcommon-x11-0:armhf
+#curl -#Of https://media.steampowered.com/steamlink/rpi/latest/steamlink_armhf.deb
+#apt-get install -y ./steamlink_armhf.deb
+#rm ./steamlink_armhf.deb
+
+# Unpack root at the end, so files are modified before
+unpack /filesystem/root /
