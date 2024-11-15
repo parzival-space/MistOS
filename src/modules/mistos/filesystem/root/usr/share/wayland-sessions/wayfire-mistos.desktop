@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Wayfire - MistOS
+Exec=wayfire --config /etc/mistos/shell/wayfire.ini
+TryExec=wayfire --config /etc/mistos/shell/wayfire.ini
+Icon=
+Type=Application
+DesktopNames=Wayfire - MistOS

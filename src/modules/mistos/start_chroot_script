@@ -24,23 +24,18 @@ apt-get install -y curl
 # install wayfire
 apt-get install -y wayfire xwayland
 
-# install & configure greetd
-apt-get install -y greetd
-systemctl enable greetd.service
-systemctl --quiet set-default graphical.target
-
-cat <<EOF >> /etc/greetd/config.toml
-[initial_session]
-user = "${BASE_USER}"
-command = "wayfire"
-EOF
-
-groupadd -r autologin
-usermod -aG autologin "${BASE_USER}"
-
 # install & enable pipewire
 apt-get install -y pipewire pipewire-pulse
 #systemctl enable pipewire.service
+
+# install & configure lightdm
+apt-get install -y lightdm
+systemctl enable lightdm.service
+systemctl --quiet set-default graphical.target
+
+# enable autologin
+groupadd -r autologin
+usermod -aG autologin "${BASE_USER}"
 
 # install steamlink
 #apt-get install -y libavcodec59:armhf libavutil57:armhf libmd4c0:armhf libwayland-egl1:armhf libxcb-image0:armhf libxcb-keysyms1:armhf libxcb-shape0:armhf libxcb-xinerama0:armhf libxcb-xkb1:armhf libxkbcommon-x11-0:armhf
