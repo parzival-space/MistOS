@@ -14,9 +14,10 @@ if [ "${BASE_DISTRO}" == "raspbian" ] || [ "${BASE_DISTRO}" == "raspios64" ] || 
     touch /var/lib/userconf-pi/autologin
 fi
 
-# auto-configure lightdm on first boot
+# enable configuration services
 systemctl enable mistos_update_lightdm.service
+systemctl enable mistos_enable_gpu.service
 
 # configure plymouth
-plymouth-set-default-theme mistos
+plymouth-set-default-theme -R mistos
 echo -n "quiet splash" >> /boot/firmware/cmdline.txt

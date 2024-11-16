@@ -2,10 +2,7 @@
 STATE_FILE=/var/lib/userconf-mistos/enabled_gpu
 
 if [ ! -f $STATE_FILE ]; then
-    sed -i /boot/firmware/cmdline.txt -e "s/ quiet//"
-    sed -i /boot/firmware/cmdline.txt -e "s/ splash//"
-    sed -i /boot/firmware/cmdline.txt -e "s/ plymouth.ignore-serial-consoles//"
-    sed -i '1s/$/ quiet splash plymouth.ignore-serial-consoles/' /boot/firmware/cmdline.txt
+    sed -i '1s/$/ quiet splash disable_splash=1 plymouth.ignore-serial-consoles/' /boot/firmware/cmdline.txt
 
     check="$(cat /proc/cpuinfo | grep 'Revision' | awk '{print $3}' | sed -e 's/[a-c]//')"
     if [ "${check}" != "03111" ] && [ "${check}" != "03112" ]; then
