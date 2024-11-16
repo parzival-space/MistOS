@@ -2,7 +2,7 @@
 Description=MistOS: Update LightDM config on first boot.
 
 [Service]
-ExecStart=/etc/mistos/scripts/update_lightdm
+ExecStart=/etc/mistos/scripts/update-lightdm.sh
 Type=oneshot
 RemainAfterExit=yes
 

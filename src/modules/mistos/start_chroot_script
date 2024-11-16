@@ -21,8 +21,8 @@ apt-get autoremove -y
 # install requirements
 apt-get install -y curl
 
-# install wayfire
-apt-get install -y wayfire xwayland
+# install wayfire & shell components
+apt-get install -y wayfire xwayland swaybg
 
 # install & enable pipewire
 apt-get install -y pipewire pipewire-pulse

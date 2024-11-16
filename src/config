@@ -1,4 +1,4 @@
-export DIST_NAME=ExampleOS
+export DIST_NAME=MistOS
 export DIST_VERSION=0.1.0
 
 # rpi-imager json generator settings
