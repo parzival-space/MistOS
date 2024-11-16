@@ -16,3 +16,7 @@ fi
 
 # auto-configure lightdm on first boot
 systemctl enable mistos_update_lightdm.service
+
+# configure plymouth
+plymouth-set-default-theme mistos
+echo -n "quiet splash" >> /boot/firmware/cmdline.txt

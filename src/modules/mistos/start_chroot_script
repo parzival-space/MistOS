@@ -21,6 +21,9 @@ apt-get autoremove -y
 # install requirements
 apt-get install -y curl
 
+# install plymouth
+apt-get install -y plymouth
+
 # install wayfire & shell components
 apt-get install -y wayfire xwayland swaybg
 
