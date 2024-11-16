@@ -2,6 +2,8 @@
 set -e
 #set -x
 
+export GTK_THEME=Adwaita:dark
+
 # depends: xterm zenity
 function get_archive_url() {
     local BRANCH="$1"
@@ -131,8 +133,10 @@ if [ $? == 0 ]; then
             fi
         ) | zenity --progress \
             --title="Updating Steam Link" \
-            --text="Processing..." \
+            --text="Loading..." \
+            --width=350 \
             --percentage=0 \
+            --time-remaining \
             --auto-close \
             --no-cancel
     else
