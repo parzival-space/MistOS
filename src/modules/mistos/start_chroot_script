@@ -19,7 +19,7 @@ apt-get update
 apt-get autoremove -y
 
 # install requirements
-apt-get install -y curl
+apt-get install -y curl zenity
 
 # install plymouth
 apt-get install -y plymouth
