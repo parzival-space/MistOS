@@ -15,6 +15,7 @@ unpack /filesystem/home/pi /home/"${BASE_USER}" "${BASE_USER}"
 unpack /filesystem/home/root /root root
 unpack /filesystem/boot /boot
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get autoremove -y
 
@@ -25,7 +26,7 @@ apt-get install -y curl zenity
 apt-get install -y plymouth
 
 # install wayfire & shell components
-apt-get install -y wayfire xwayland swaybg
+apt-get install -y labwc xwayland swaybg
 
 # install & enable pipewire
 apt-get install -y pipewire pipewire-pulse
