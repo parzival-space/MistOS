@@ -8,7 +8,7 @@
 <labwc_config>
 
   <theme>
-    <name></name>
+    <name>mistos</name>
     <cornerRadius>8</cornerRadius>
     <font name="sans" size="10" />
   </theme>
@@ -32,9 +32,8 @@
     <default />
     <!-- Show a custom menu on desktop right click -->
     <context name="Root">
-      <mousebind button="Right" action="Press">
-        <action name="ShowMenu" menu="some-custom-menu" />
-      </mousebind>
+      <mousebind button="Right" />
+      <mousebind button="Left" />
     </context>
   </mouse>
 

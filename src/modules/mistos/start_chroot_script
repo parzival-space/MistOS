@@ -32,6 +32,9 @@ apt-get install -y labwc xwayland swaybg
 apt-get install -y pipewire pipewire-pulse
 #systemctl enable pipewire.service
 
+# install additional tools
+apt-get install -y alacritty
+
 # install & configure lightdm
 apt-get install -y lightdm
 systemctl enable lightdm.service
@@ -40,12 +43,6 @@ systemctl --quiet set-default graphical.target
 # enable autologin
 groupadd -r autologin
 usermod -aG autologin "${BASE_USER}"
-
-# install steamlink
-#apt-get install -y libavcodec59:armhf libavutil57:armhf libmd4c0:armhf libwayland-egl1:armhf libxcb-image0:armhf libxcb-keysyms1:armhf libxcb-shape0:armhf libxcb-xinerama0:armhf libxcb-xkb1:armhf libxkbcommon-x11-0:armhf
-#curl -#Of https://media.steampowered.com/steamlink/rpi/latest/steamlink_armhf.deb
-#apt-get install -y ./steamlink_armhf.deb
-#rm ./steamlink_armhf.deb
 
 # Unpack root at the end, so files are modified before
 unpack /filesystem/root /
