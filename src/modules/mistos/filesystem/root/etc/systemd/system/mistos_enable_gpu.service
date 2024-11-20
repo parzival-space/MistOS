@@ -1,0 +1,10 @@
+[Unit]
+Description=MistOS: Enable GPU on first boot.
+
+[Service]
+ExecStart=/etc/mistos/scripts/enable-gpu.sh
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=lightdm.service

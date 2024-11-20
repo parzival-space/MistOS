@@ -1,0 +1,10 @@
+[Unit]
+Description=MistOS: Update LightDM config on first boot.
+
+[Service]
+ExecStart=/etc/mistos/scripts/update-lightdm.sh
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=lightdm.service

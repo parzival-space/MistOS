@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "workingDir": "$PROJECT_DIR$",
+            "name": "Build Project",
+            "program": "docker",
+            "args": ["run", "--rm", "-v", "$PROJECT_DIR$/src:/distro", "--device", "/dev/loop-control", "--privileged", "guysoft/custompios:devel", "build", "-d"],
+        },
+        {
+            "type": "command",
+            "workingDir": "$PROJECT_DIR$",
+            "name": "Build Project (no Download)",
+            "program": "docker",
+            "args": ["run", "--rm", "-v", "$PROJECT_DIR$/src:/distro", "--device", "/dev/loop-control", "--privileged", "guysoft/custompios:devel", "build"],
+        }
+    ]
+}

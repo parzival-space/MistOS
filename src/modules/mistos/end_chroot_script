@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# <Script Name>
+# <Description what this module does>
+# Written by <Author>
+# GPL V3
+########
+
+set -x
+set -e
+
+# cancel-rename overrides auto login see https://github.com/RPi-Distro/pi-gen/issues/780
+if [ "${BASE_DISTRO}" == "raspbian" ] || [ "${BASE_DISTRO}" == "raspios64" ] || [ "${BASE_DISTRO}" == "raspios" ]; then
+    mkdir -p /var/lib/userconf-pi
+    touch /var/lib/userconf-pi/autologin
+fi
+
+# enable configuration services
+systemctl enable mistos_update_lightdm.service
+systemctl enable mistos_enable_gpu.service
+
+# configure plymouth
+plymouth-set-default-theme -R mistos
+echo -n "quiet splash" >> /boot/firmware/cmdline.txt

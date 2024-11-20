@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=MistOS
+Comment=labwc, a wayland stacking compositor, preconfigured for MistOS
+Exec=/usr/bin/labwc --config-dir /etc/mistos/shell/
+TryExec=/usr/bin/labwc --config-dir /etc/mistos/shell/
+Icon=
+Type=Application
+DesktopNames=MistOS

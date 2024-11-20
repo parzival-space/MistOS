@@ -1,0 +1,24 @@
+name: Build Project
+on: [ pull_request, workflow_call ]
+jobs:
+  build_distro:
+    name: "Build for Linux"
+    runs-on: ubuntu-22.04
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+      - name: Docker Setup QEMU
+        uses: docker/setup-qemu-action@v3.2.0
+      - name: Docker Setup Buildx
+        uses: docker/setup-buildx-action@v3.7.1
+
+      - name: "Build Project"
+        run: docker run --rm -v $(pwd)/src:/distro --device /dev/loop-control --privileged guysoft/custompios:devel build -d
+      - name: "Upload Artifacts"
+        uses: actions/upload-artifact@v4
+        working-directory: ./src/workspace/
+        with:
+          name: build-artifacts
+          path: |
+            *.img
+            *.zip

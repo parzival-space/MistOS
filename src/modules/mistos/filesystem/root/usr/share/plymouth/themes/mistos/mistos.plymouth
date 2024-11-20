@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=MistOS Splash Theme
+Description=A simple splash theme for the MistOS distribution.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/mistos
+ScriptFile=/usr/share/plymouth/themes/mistos/mistos.script
