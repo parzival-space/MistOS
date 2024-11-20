@@ -149,6 +149,11 @@ fi
 # launch SteamLink
 if [ -x "$STEAMLINK_DATA_HOME/$STEAMLINK_FILE" ]; then
     exec "$STEAMLINK_DATA_HOME/$STEAMLINK_FILE" "$@"
+
+    # reboot the device if requested
+    if [[ " $* " == *" --reboot-on-exit "* ]]; then
+        /usr/bin/systemctl -i poweroff
+    fi
 else
     zenity --error --title="MistOS" --text="Couldn't download Steam Link application, aborting"
 fi

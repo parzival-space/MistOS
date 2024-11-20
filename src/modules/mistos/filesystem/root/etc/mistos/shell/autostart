@@ -2,4 +2,4 @@
 /usr/bin/swaybg --image /etc/mistos/shell/media/wallpaper.png >/dev/null 2>&1 &
 
 # Start Steam Link
-/etc/mistos/scripts/steamlink-launcher.sh 2>&1 &
+/etc/mistos/scripts/steamlink-launcher.sh --reboot-on-exit 2>&1 &
