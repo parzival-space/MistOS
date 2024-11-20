@@ -1,5 +1,5 @@
 name: Build Project
-on: [ pull_request, workflow_call ]
+on: [ pull_request, workflow_call, workflow_dispatch ]
 jobs:
   build_distro:
     name: "Build for Linux"
