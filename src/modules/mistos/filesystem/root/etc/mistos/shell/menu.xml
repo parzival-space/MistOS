@@ -57,7 +57,7 @@
     <action name="Reconfigure" />
   </item>
   <item label="Reboot">
-    <action name="Exit" />
+    <action name="Execute" command="systemctl -i reboot" />
   </item>
   <item label="Poweroff">
     <action name="Execute" command="systemctl -i poweroff" />
